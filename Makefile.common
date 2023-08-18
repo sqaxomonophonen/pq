@@ -1,0 +1,21 @@
+OPT=-g -O0
+#OPT=-O2
+CFLAGS=$(OPT)      \
+	--std=c17  \
+	-Wall      \
+	$(PLATFORM_CFLAGS)
+
+objs=main.o
+
+all: main
+
+main.o: main.c hdrpix.h pq.h
+
+main: $(objs)
+	$(CC) \
+		$^ -o $@ \
+		-lm \
+		$(PLATFORM_LINK)
+
+clean:
+	rm -f main *.o

@@ -1,0 +1,4 @@
+PKGS=gl sdl2
+PLATFORM_CFLAGS=$(shell pkg-config --cflags $(PKGS))
+PLATFORM_LINK=$(shell pkg-config --libs $(PKGS)) -pthread -lm
+include Makefile.common
